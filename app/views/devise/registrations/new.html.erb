@@ -1,0 +1,50 @@
+<div class="main">
+  <div class="inner">
+    <div class="form__wrapper">
+      <h2 class="page-heading">ユーザー新規登録</h2>
+        <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
+
+          <div class="field">
+            <%= f.label :email, "メールアドレス" %><br />
+            <%= f.text_field :email, autofocus: true, autocomplete: "email" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password, "パスワード（6文字以上）" %>
+            <% if @minimum_password_length %>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "new_password" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password_confirmation, "パスワード再入力" %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :name, "ユーザー名" %><br />
+            <%= f.text_field :name, autocomplete: "name" %>
+          </div>
+
+          <div cladd="field">
+            <%= f.label :profile, "プロフィール" %><br />
+            <%= f.text_area :profile, style: "width:50%", autocomplete: "profile" %>
+          </div>
+
+          <div cladd="field">
+            <%= f.label :occupation, "所属" %><br />
+            <%= f.text_area :occupation, style: "width:50%", autocomplete: "occupation" %>
+          </div>
+
+          <div cladd="field">
+            <%= f.label :position, "役職" %><br />
+            <%= f.text_area :position, style: "width:50%", autocomplete: "position" %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "新規登録", class: :form__btn %>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>
